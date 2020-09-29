@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
-
+const cors = require('cors');
 
 
 const app = express();
@@ -12,12 +12,17 @@ app.set('port', process.env.PORT || 3000);
 //Importando rutas 
 const proscaiRutas = require('./routes/proscai');
 
-//routes 
-app.use('/', proscaiRutas);
+
 
 //middlewares 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
+app.use(cors())
+
+//routes 
+
+app.use('/', proscaiRutas);
+
 
 
 app.listen(app.get('port'),()=>{
