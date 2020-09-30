@@ -30,7 +30,7 @@ controller.insert = (req, res) => {
 
     (async () => {
 
-
+  
         let busca = await query2(`SELECT * FROM inventarios WHERE ISEQ = ${inventarios.ISEQ}`);
 
         if (busca.length <= 0) {
@@ -40,7 +40,7 @@ controller.insert = (req, res) => {
         }
 
 
-    })();
+    })().catch(err => console.log(err))
 }
 
  controller.agregaInventarioRealDBTuvansaAdataTable = async (output)=>{
