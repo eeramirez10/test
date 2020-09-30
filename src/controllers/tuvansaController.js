@@ -28,7 +28,9 @@ controller.insert = (req, res) => {
         'ALMCANTREAL': data.value,
     };
 
-    (async () => {
+    console.log(inventarios);
+
+/*     (async () => {
 
   
         let busca = await query2(`SELECT * FROM inventarios WHERE ISEQ = ${inventarios.ISEQ}`);
@@ -40,7 +42,7 @@ controller.insert = (req, res) => {
         }
 
 
-    })().catch(err => console.log(err))
+    })().catch(err => console.log(err)) */
 }
 
  controller.agregaInventarioRealDBTuvansaAdataTable = async (output)=>{
