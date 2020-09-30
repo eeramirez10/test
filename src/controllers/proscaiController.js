@@ -145,11 +145,11 @@ function server(res) {
             temp = [];
         }
 
-         tuvansaController.agregaInventarioRealDBTuvansaAdataTable(output)
-            .then( resp => sendJSON(res, 200, resp)); 
+       /*   tuvansaController.agregaInventarioRealDBTuvansaAdataTable(output)
+            .then( resp => sendJSON(res, 200, resp));  */
 
         
-            //sendJSON(res, 200, output);
+            sendJSON(res, 200, output);
 
     })();
 
