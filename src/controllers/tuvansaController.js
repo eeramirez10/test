@@ -3,28 +3,27 @@ const mysql = require('mysql');
 const util = require('util');
 const moment = require('moment');
 
+const connection2 = mysql.createConnection({
+    host: 'tuvansa-server.dyndns.org',
+    user: 'erick',
+    password: 'Ag7348pp**',
+    database: 'tuvansa',
+    port: 3306
+})
 
+connection2.connect(function (err) {
+    if (err) {
+        console.error('error connecting: ' + err.stack);
+        return;
+    }
+
+    console.log('connected as id ' + connection2.threadId);
+});
+
+// Peticiones sincronas
+const query2 = util.promisify(connection2.query).bind(connection2);
 
 controller.insert = (req, res) => {
-    
-    const connection2 = mysql.createConnection({
-        host: 'tuvansa-server.dyndns.org',
-        user: 'erick',
-        password: 'Ag7348pp**',
-        database: 'tuvansa'
-    })
-    
-    connection2.connect(function (err) {
-        if (err) {
-            console.error('error connecting: ' + err.stack);
-            return;
-        }
-    
-        console.log('connected as id ' + connection2.threadId);
-    });
-    
-    // Peticiones sincronas
-    const query2 = util.promisify(connection2.query).bind(connection2);
     let data = req.body;
     let fechaActual = moment().format('YYYY-MM-DD');
 
