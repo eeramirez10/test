@@ -10,6 +10,11 @@ const connection2 = mysql.createConnection({
     database: 'tuvansa'
 })
 
+connection2.connect((err)=>{
+    if (err) throw err;
+    console.log('conectado prrro');
+})
+
 // Peticiones sincronas
 const query2 = util.promisify(connection2.query).bind(connection2);
 
