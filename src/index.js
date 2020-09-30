@@ -18,7 +18,7 @@ const proscaiRutas = require('./routes/proscai');
 //middlewares 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
-app.use(cors())
+//app.use(cors())
 
 //routes 
 
