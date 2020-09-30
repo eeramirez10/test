@@ -3,7 +3,7 @@ const mysql = require('mysql');
 const util = require('util');
 const moment = require('moment');
 
-const connection = mysql.createConnection({
+const connection2 = mysql.createConnection({
     host: 'tuvansa-server.dyndns.org',
     user: 'erick',
     password: 'Ag7348pp**',
@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 })
 
 // Peticiones sincronas
-const query2 = util.promisify(connection.query).bind(connection);
+const query2 = util.promisify(connection2.query).bind(connection2);
 
 controller.insert = (req, res) => {
     let data = req.body;
