@@ -11,7 +11,7 @@ const connection = mysql.createConnection({
 })
 
 // Peticiones sincronas
-const query = util.promisify(connection.query).bind(connection);
+const query2 = util.promisify(connection.query).bind(connection);
 
 controller.insert = (req, res) => {
     let data = req.body;
@@ -31,12 +31,12 @@ controller.insert = (req, res) => {
     (async () => {
 
 
-        let busca = await query(`SELECT * FROM inventarios WHERE ISEQ = ${inventarios.ISEQ}`);
+        let busca = await query2(`SELECT * FROM inventarios WHERE ISEQ = ${inventarios.ISEQ}`);
 
         if (busca.length <= 0) {
-            let insert = await query('INSERT INTO inventarios SET ?', inventarios)
+            let insert = await query2('INSERT INTO inventarios SET ?', inventarios)
         } else {
-            let actualiza = await query('UPDATE inventarios SET ALMCANTREAL = ?, IALTAREAL = ? WHERE ISEQ = ? ', [inventarios.ALMCANTREAL, inventarios.IALTAREAL, inventarios.ISEQ]);
+            let actualiza = await query2('UPDATE inventarios SET ALMCANTREAL = ?, IALTAREAL = ? WHERE ISEQ = ? ', [inventarios.ALMCANTREAL, inventarios.IALTAREAL, inventarios.ISEQ]);
         }
 
 
@@ -47,7 +47,7 @@ controller.insert = (req, res) => {
     const out = await output;
 
     for (const data of out.aaData) {
-      let inventarios = await query(`SELECT  * FROM inventarios WHERE iseq = ${data[0]}`);
+      let inventarios = await query2(`SELECT  * FROM inventarios WHERE iseq = ${data[0]}`);
       if (inventarios.length > 0) {
         data[7] = inventarios[0].ALMCANTREAL
       }
