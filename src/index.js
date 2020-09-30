@@ -11,7 +11,7 @@ app.set('port', process.env.PORT || 3000);
 
 //Importando rutas 
 const proscaiRutas = require('./routes/proscai');
-//const tuvansaRutas = require('./routes/tuvansa');
+const tuvansaRutas = require('./routes/tuvansa');
 
 
 
@@ -22,7 +22,7 @@ app.use(cors())
 
 //routes 
 
-app.use('/', proscaiRutas);
+app.use('/', proscaiRutas,tuvansaRutas);
 //app.use('/', tuvansaRutas);
 
 
