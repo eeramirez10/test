@@ -10,6 +10,8 @@ const connection = mysql.createConnection({
     database: 'tuvansa'
 })
 
+
+
 // Peticiones sincronas
 const query2 = util.promisify(connection.query).bind(connection);
 
@@ -27,6 +29,8 @@ controller.insert = (req, res) => {
         'IALTAREAL': fechaActual,
         'ALMCANTREAL': data.value,
     };
+
+    console.log(inventarios);
 
     (async () => {
 
